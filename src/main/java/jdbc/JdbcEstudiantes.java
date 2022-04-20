@@ -29,4 +29,11 @@ public class JdbcEstudiantes implements Estudiantes {
             return e.containsId(Long.parseLong(id));
         }).collect(Collectors.toList());
     }
+
+    @Override
+    public void crearPersona(String nombre, String apellido, String idCurso) {
+        Estudiante estudiante = new Estudiante(nombre, apellido, 1L);
+        System.out.println(idCurso);
+        System.out.println(estudiante.toString());
+    }
 }

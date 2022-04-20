@@ -30,6 +30,7 @@ public class WebAPI {
         }).start(this.webPort);
         app.get("/estudiantes", traerEstudiantes());
         app.get("/cursos", traerCursos());
+        app.post("/estudiantes", crearEstudiante());
 
         app.exception(EstudianteException.class, (e, ctx) -> {
             ctx.json(Map.of("result", "error", "message", e.getMessage()));
@@ -40,6 +41,15 @@ public class WebAPI {
             ctx.json(Map.of("result", "error", "message", "Ups... algo se rompió.: " + e.getMessage()));
             // log error in a stream...
         });
+    }
+
+    private Handler crearEstudiante() {
+        return ctx -> {
+            EstudianteDto dto = ctx.bodyAsClass(EstudianteDto.class);
+            System.out.println(dto.getCurso());
+            this.estudiantes.crearPersona(dto.getNombre(), dto.getApellido(), dto.getCurso());
+            ctx.json(Map.of("result", "success"));
+        };
     }
 
     private Handler traerCursos() {

@@ -31,7 +31,7 @@ public class JdbcEstudiantes implements Estudiantes {
     }
 
     @Override
-    public void crearPersona(String nombre, String apellido, String idCurso) {
+    public void crearEstudiante(String nombre, String apellido, String idCurso) {
         Estudiante estudiante = new Estudiante(nombre, apellido, 1L);
         System.out.println(idCurso);
         System.out.println(estudiante.toString());

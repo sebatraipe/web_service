@@ -47,7 +47,7 @@ public class WebAPI {
         return ctx -> {
             EstudianteDto dto = ctx.bodyAsClass(EstudianteDto.class);
             System.out.println(dto.getCurso());
-            this.estudiantes.crearPersona(dto.getNombre(), dto.getApellido(), dto.getCurso());
+            this.estudiantes.crearEstudiante(dto.getNombre(), dto.getApellido(), dto.getCurso());
             ctx.json(Map.of("result", "success"));
         };
     }

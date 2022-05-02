@@ -36,4 +36,10 @@ public class JdbcEstudiantes implements Estudiantes {
         System.out.println(idCurso);
         System.out.println(estudiante.toString());
     }
+
+    @Override
+    public void inscribir(String curso, String idEstudiante) {
+        System.out.println(curso);
+        System.out.println(idEstudiante);
+    }
 }

@@ -2,9 +2,10 @@ package web;
 
 public class EstudianteDto {
 
+    private String estudiante;
     private String nombre;
     private String apellido;
-    private String cursos;
+    private String curso;
 
     public String getNombre() {
         return nombre;
@@ -19,9 +20,17 @@ public class EstudianteDto {
         this.apellido = apellido;
     }
     public String getCurso() {
-        return cursos;
+        return curso;
     }
     public void setCurso(String cursos) {
-        this.cursos = cursos;
+        this.curso = cursos;
+    }
+
+    public String getEstudiante() {
+        return estudiante;
+    }
+
+    public void setEstudiante(String estudiante) {
+        this.estudiante = estudiante;
     }
 }

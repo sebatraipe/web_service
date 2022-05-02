@@ -14,15 +14,17 @@ public class Estudiante {
     private List<Curso> cursos;
 
     public Estudiante(String nombre, String apellido, Long id) {
-        this.nombre = new NotNullNotEmpty(nombre).value();
-        this.apellido = new NotNullNotEmpty(apellido).value();
+        var chek = new NotNullNotEmpty("nombre", nombre, "apellido", apellido);
+        chek.throwOnError();
+
+        this.nombre = nombre;
+        this.apellido = apellido;
         this.id = id;
         this.cursos = new ArrayList<>();
     }
 
     public void addCurso(String nombreCurso, String horasCurso) {
-        this.cursos.add(new Curso(new NotNullNotEmpty(nombreCurso).value(),
-                new NotNullNotEmpty(horasCurso).value()));
+        this.cursos.add(new Curso(nombreCurso, horasCurso));
     }
 
     public Map<String, Object> toMap() {

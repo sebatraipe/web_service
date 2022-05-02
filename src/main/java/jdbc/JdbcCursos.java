@@ -14,5 +14,3 @@ public class JdbcCursos implements Cursos {
                 new Curso("PDS", "48 hs diarias"));
     }
 }
-
-
